@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @director.name %>
+</p>
+
+<p>
+  <strong>Original name:</strong>
+  <%= @director.original_name %>
+</p>
+
+<%= link_to 'Edit', edit_director_path(@director) %> |
+<%= link_to 'Back', directors_path %>

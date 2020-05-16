@@ -1,0 +1,27 @@
+<h1>Directors</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Original name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @directors.each do |director| %>
+      <tr>
+        <td><%= director.name %></td>
+        <td><%= director.original_name %></td>
+        <td><%= link_to 'Show', director, class: "btn btn-primary btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_director_path(director), class: "btn btn-secondary btn-sm" %></td>
+        <td><%= link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Director', new_director_path %>
