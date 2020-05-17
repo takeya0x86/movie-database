@@ -1,37 +1,41 @@
-<p>
-  <strong>Title:</strong>
-  <%= @movie.title %>
-</p>
+<div class="row">
+  <div class="col">
+    <h1 class="my-3">
+      <%= @movie.title %>
+      <br>
+      <small class="text-muted">
+        <% if !@movie.original_title.blank? %>
+          <%= @movie.original_title %>
+        <% elsif !@movie.english_title.blank? %>
+          <%= @movie.english_title %>
+        <% end %>
+      </small>
+    </h1>
+  </div>
+</div>
 
-<p>
-  <strong>Release date:</strong>
-  <%= @movie.release_date %>
-</p>
+<div class="row my-3">
+  <div class="col-2 offset-10">
+    <%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-success", role: "button" %>
+    <%= link_to 'Delete', @movie, class: "btn btn-danger", data: { confirm: 'Are you sure?' }, role: "button" %>
+  </div>
+</div>
 
-<p>
-  <strong>Director:</strong>
-  <%= @movie.director&.name %>
-</p>
-
-<p>
-  <strong>Series:</strong>
-  <%= @movie.series&.name %>
-</p>
-
-<p>
-  <strong>Running time:</strong>
-  <%= @movie.running_time %>
-</p>
-
-<p>
-  <strong>Original title:</strong>
-  <%= @movie.original_title %>
-</p>
-
-<p>
-  <strong>English title:</strong>
-  <%= @movie.english_title %>
-</p>
-
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<dl class="row">
+  <dt class="col-2">Release date</dt>
+  <dd class="col-10"><%= @movie.release_date %></dd>
+  <dt class="col-2">Director</dt>
+  <dd class="col-10">
+    <% if @movie.director %>
+      <%= link_to @movie.director.name, @movie.director %>
+    <% end %>
+  </dd>
+  <dt class="col-2">Series</dt>
+  <dd class="col-10">
+    <% if @movie.series %>
+      <%= link_to @movie.series.name, @movie.series %>
+    <% end %>
+  </dd>
+  <dt class="col-2">Running time</dt>
+  <dd class="col-10"><%= @movie.running_time %></dd>
+</dl>

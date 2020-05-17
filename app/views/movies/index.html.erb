@@ -1,4 +1,14 @@
-<h1>Movies</h1>
+<div class="row my-3">
+  <div class="col">
+    <h1>Movies</h1>
+  </div>
+</div>
+
+<div class="row my-3">
+  <div class="col-2 offset-10">
+    <%= link_to 'New Movie', new_movie_path, class: "btn btn-success", role: "button" %>
+  </div>
+</div>
 
 <table class="table">
   <thead>
@@ -7,27 +17,24 @@
       <th>Release date</th>
       <th>Director</th>
       <th>Series</th>
-      <th>Running time</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
-        <td><%= movie.title %></td>
+        <td><%= link_to movie.title, movie %></td>
         <td><%= movie.release_date %></td>
-        <td><%= movie.director&.name %></td>
-        <td><%= movie.series&.name %></td>
-        <td><%= movie.running_time %></td>
-        <td><%= link_to 'Show', movie, class: "btn btn-primary btn-sm" %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-secondary btn-sm" %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td>
+        <td>
+          <% if movie.director %>
+            <%= link_to movie.director.name, movie.director %>
+          <% end %>
+        </td>
+        <td>
+          <% if movie.series %>
+            <%= link_to movie.series.name, movie.series %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Movie', new_movie_path %>
