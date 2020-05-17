@@ -10,12 +10,12 @@
 
 <p>
   <strong>Director:</strong>
-  <%= @movie.director.name %>
+  <%= @movie.director&.name %>
 </p>
 
 <p>
   <strong>Series:</strong>
-  <%= @movie.series.name %>
+  <%= @movie.series&.name %>
 </p>
 
 <p>

@@ -17,8 +17,8 @@
       <tr>
         <td><%= movie.title %></td>
         <td><%= movie.release_date %></td>
-        <td><%= movie.director.name %></td>
-        <td><%= movie.series.name %></td>
+        <td><%= movie.director&.name %></td>
+        <td><%= movie.series&.name %></td>
         <td><%= movie.running_time %></td>
         <td><%= link_to 'Show', movie, class: "btn btn-primary btn-sm" %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-secondary btn-sm" %></td>
