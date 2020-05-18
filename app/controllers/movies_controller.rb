@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.includes(:director, :series)
+    @movies = Movie.includes(:director, :series).order(:release_date)
   end
 
   # GET /movies/1

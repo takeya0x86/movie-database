@@ -26,7 +26,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @director.movies.each do |movie| %>
+    <% @director.movies.includes(:series).order(:release_date).each do |movie| %>
       <tr>
         <td><%= link_to movie.title, movie %></td>
         <td><%= movie.release_date %></td>
