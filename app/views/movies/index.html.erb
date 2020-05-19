@@ -28,6 +28,18 @@
           <% if movie.director %>
             <%= link_to movie.director.name, movie.director %>
           <% end %>
+          <% if movie.director2 %>
+            <br><%= link_to movie.director2.name, movie.director2 %>
+          <% end %>
+          <% if movie.director3 %>
+            <br><%= link_to movie.director3.name, movie.director3 %>
+          <% end %>
+          <% if movie.director4 %>
+            <br><%= link_to movie.director4.name, movie.director4 %>
+          <% end %>
+          <% if movie.director5 %>
+            <br><%= link_to movie.director5.name, movie.director5 %>
+          <% end %>
         </td>
         <td>
           <% if movie.series %>

@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.includes(:director, :series).order(:release_date)
+    @movies = Movie.includes(:director, :director2, :director3, :director4, :director5, :series).order(:release_date)
   end
 
   # GET /movies/1
@@ -70,6 +70,6 @@ class MoviesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movie_params
-      params.require(:movie).permit(:title, :release_date, :director_id, :series_id, :running_time, :original_title, :english_title)
+      params.require(:movie).permit(:title, :release_date, :director_id, :director2_id, :director3_id, :director4_id, :director5_id, :series_id, :running_time, :original_title, :english_title)
     end
 end

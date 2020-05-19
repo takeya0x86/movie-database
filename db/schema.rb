@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_035914) do
+ActiveRecord::Schema.define(version: 2020_05_19_103740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2020_05_17_035914) do
     t.string "english_title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.uuid "director2_id"
+    t.uuid "director3_id"
+    t.uuid "director4_id"
+    t.uuid "director5_id"
+    t.index ["director2_id"], name: "index_movies_on_director2_id"
+    t.index ["director3_id"], name: "index_movies_on_director3_id"
+    t.index ["director4_id"], name: "index_movies_on_director4_id"
+    t.index ["director5_id"], name: "index_movies_on_director5_id"
     t.index ["director_id"], name: "index_movies_on_director_id"
     t.index ["series_id"], name: "index_movies_on_series_id"
   end
@@ -57,5 +65,9 @@ ActiveRecord::Schema.define(version: 2020_05_17_035914) do
   end
 
   add_foreign_key "movies", "directors"
+  add_foreign_key "movies", "directors", column: "director2_id"
+  add_foreign_key "movies", "directors", column: "director3_id"
+  add_foreign_key "movies", "directors", column: "director4_id"
+  add_foreign_key "movies", "directors", column: "director5_id"
   add_foreign_key "movies", "series"
 end
