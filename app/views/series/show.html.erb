@@ -19,19 +19,19 @@
 
 <table class="table">
   <thead>
-    <tr>
-      <th>Title</th>
-      <th>Release date</th>
-      <th>Director</th>
+    <tr class="row">
+      <th class="col-6">Title</th>
+      <th class="col-2">Release date</th>
+      <th class="col-4">Director</th>
     </tr>
   </thead>
 
   <tbody>
     <% @series.movies.includes(:director).order(:release_date).each do |movie| %>
-      <tr>
-        <td><%= link_to movie.title, movie %></td>
-        <td><%= movie.release_date %></td>
-        <td>
+      <tr class="row">
+        <td class="col-6"><%= link_to movie.title, movie %></td>
+        <td class="col-2"><%= movie.release_date %></td>
+        <td class="col-4">
           <% if movie.director %>
             <%= link_to movie.director.name, movie.director %>
           <% end %>
