@@ -5,7 +5,7 @@ class SeriesController < ApplicationController
   # GET /series
   # GET /series.json
   def index
-    @series = Series.all
+    @series = Series.order(:name)
   end
 
   # GET /series/1
