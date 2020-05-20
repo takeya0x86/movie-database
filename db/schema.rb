@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_164034) do
+ActiveRecord::Schema.define(version: 2020_05_20_182004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -53,7 +53,9 @@ ActiveRecord::Schema.define(version: 2020_05_20_164034) do
     t.index ["director4_id"], name: "index_movies_on_director4_id"
     t.index ["director5_id"], name: "index_movies_on_director5_id"
     t.index ["director_id"], name: "index_movies_on_director_id"
+    t.index ["release_date"], name: "index_movies_on_release_date"
     t.index ["series_id"], name: "index_movies_on_series_id"
+    t.index ["title"], name: "index_movies_on_title"
   end
 
   create_table "series", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
