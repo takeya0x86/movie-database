@@ -11,6 +11,13 @@ class DirectorsController < ApplicationController
   # GET /directors/1
   # GET /directors/1.json
   def show
+    @movies = Movie.where(director: @director)
+                   .or(Movie.where(director2: @director))
+                   .or(Movie.where(director3: @director))
+                   .or(Movie.where(director4: @director))
+                   .or(Movie.where(director5: @director))
+                   .order(:release_date)
+                   .includes(:series)
   end
 
   # GET /directors/new
