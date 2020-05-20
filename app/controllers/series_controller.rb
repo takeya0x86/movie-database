@@ -5,7 +5,7 @@ class SeriesController < ApplicationController
   # GET /series
   # GET /series.json
   def index
-    @series = Series.order(:name)
+    @series = Series.order(movies_count: :desc, name: :asc)
   end
 
   # GET /series/1

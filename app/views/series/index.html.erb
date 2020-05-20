@@ -12,14 +12,16 @@
 
 <table class="table">
   <thead>
-    <tr>
-      <th scope="col">Name</th>
+    <tr class="row">
+      <th scope="col" class="col-10">Name</th>
+      <th scope="col" class="col-2"></th>
     </tr>
   </thead>
   <tbody>
     <% @series.each do |series| %>
-      <tr>
-        <td><%= link_to series.name, series %></td>
+      <tr class="row">
+        <td class="col-10"><%= link_to series.name, series %></td>
+        <td class="col-2"><%= series.movies.size %></td>
       </tr>
     <% end %>
   </tbody>
