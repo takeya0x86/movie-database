@@ -5,7 +5,10 @@ class DirectorsController < ApplicationController
   # GET /directors
   # GET /directors.json
   def index
-    @directors = Director.order(:name)
+    @directors = Director.order(movies_count: :desc, name: :asc).sort do |a, b| 
+      res = (a.movies_size_all <=> b.movies_size_all) * -1
+      res != 0 ? res : a.name <=> b.name
+    end
   end
 
   # GET /directors/1

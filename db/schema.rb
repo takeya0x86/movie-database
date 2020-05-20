@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_160204) do
+ActiveRecord::Schema.define(version: 2020_05_20_164034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 2020_05_20_160204) do
     t.string "original_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "movies_count", default: 0, null: false
+    t.integer "movie2s_count", default: 0, null: false
+    t.integer "movie3s_count", default: 0, null: false
+    t.integer "movie4s_count", default: 0, null: false
+    t.integer "movie5s_count", default: 0, null: false
+    t.index ["movie2s_count"], name: "index_directors_on_movie2s_count"
+    t.index ["movie3s_count"], name: "index_directors_on_movie3s_count"
+    t.index ["movie4s_count"], name: "index_directors_on_movie4s_count"
+    t.index ["movie5s_count"], name: "index_directors_on_movie5s_count"
+    t.index ["movies_count"], name: "index_directors_on_movies_count"
+    t.index ["name"], name: "index_directors_on_name"
   end
 
   create_table "movies", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|

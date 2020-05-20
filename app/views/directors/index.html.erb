@@ -12,14 +12,16 @@
 
 <table class="table">
   <thead>
-    <tr>
-      <th scope="col">Name</th>
+    <tr class="row">
+      <th scope="col" class="col-10">Name</th>
+      <th scope="col" class="col-2"></th>
     </tr>
   </thead>
   <tbody>
     <% @directors.each do |director| %>
-      <tr>
-        <td><%= link_to director.name, director %></td>
+      <tr class="row">
+        <td class="col-10"><%= link_to director.name, director %></td>
+        <td class="col-2"><%= director.movies_size_all %></td>
       </tr>
     <% end %>
   </tbody>
