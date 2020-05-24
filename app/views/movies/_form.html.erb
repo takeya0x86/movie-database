@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col">
-    <%= form_with(model: movie, local: true) do |form| %>
+    <%= form_with(model: movie, local: true, class: "needs-validation", html: { novalidate: true }) do |form| %>
       <% if movie.errors.any? %>
         <div id="error_explanation" class="alert alert-danger" role="alert">
           <h4 class="alert-heading"><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h4>
@@ -15,57 +15,68 @@
 
       <div class="form-group">
         <%= form.label :title %>
-        <%= form.text_field :title, class: "form-control" %>
+        <%= form.text_field :title, class: "form-control", required: true %>
+        <div class="invalid-feedback"></div>
       </div>
 
       <div class="form-group">
         <%= form.label :release_date %>
-        <%= form.date_field :release_date, class: "form-control" %>
+        <%= form.date_field :release_date, class: "form-control", required: true %>
+        <div class="invalid-feedback"></div>
       </div>
 
       <div class="form-group">
         <%= form.label :director_id %>
         <%= form.collection_select :director_id, Director.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %>
+        <div class="invalid-feedback"></div>
       </div>
 
       <div class="form-group">
         <%= form.label :director2_id %>
         <%= form.collection_select :director2_id, Director.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %>
+        <div class="invalid-feedback"></div>
       </div>
 
       <div class="form-group">
         <%= form.label :director3_id %>
         <%= form.collection_select :director3_id, Director.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %>
+        <div class="invalid-feedback"></div>
       </div>
 
       <div class="form-group">
         <%= form.label :director4_id %>
         <%= form.collection_select :director4_id, Director.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %>
+        <div class="invalid-feedback"></div>
       </div>
 
       <div class="form-group">
         <%= form.label :director5_id %>
         <%= form.collection_select :director5_id, Director.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %>
+        <div class="invalid-feedback"></div>
       </div>
 
       <div class="form-group">
         <%= form.label :series_id %>
         <%= form.collection_select :series_id, Series.order(:name), :id, :name, { include_blank: true }, { class: "form-control" } %>
+        <div class="invalid-feedback"></div>
       </div>
 
       <div class="form-group">
         <%= form.label :running_time %>
         <%= form.number_field :running_time, class: "form-control" %>
+        <div class="invalid-feedback"></div>
       </div>
 
       <div class="form-group">
         <%= form.label :original_title %>
         <%= form.text_field :original_title, class: "form-control" %>
+        <div class="invalid-feedback"></div>
       </div>
 
       <div class="form-group">
         <%= form.label :english_title %>
         <%= form.text_field :english_title, class: "form-control" %>
+        <div class="invalid-feedback"></div>
       </div>
 
       <div class="actions">
